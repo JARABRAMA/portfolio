@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/*
+ * Grid auto-llenado usado por las secciones de habilidades y portafolio.
+ * El min() evita que la pista de 300px sea más ancha que el contenedor en
+ * teléfonos estrechos, que era la causa del scroll horizontal.
+ */
+.responsive-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+/*
+ * Red de seguridad: clip no crea un contenedor de scroll (a diferencia de
+ * hidden) ni afecta a position: sticky del menú lateral. La causa raíz del
+ * desbordamiento se corrigió con anchos fluidos en cada sección.
+ */
+html {
+  overflow-x: clip;
+  overflow-wrap: break-word;
+}
